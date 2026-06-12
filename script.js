@@ -1,4 +1,3 @@
-// ============================================
 // LEZECK STORE - COMPLETE SCRIPT (Days 1-20)
 // PRODUCTION READY
 // ============================================
@@ -12,9 +11,8 @@ const ORDERS_KEY = 'lezeckOrders';
 const USERS_KEY = 'lezeckUsers';
 
 // Debug mode - DISABLED for production
-const DEBUG = false; // localStorage.getItem('debug') === 'true';
+const DEBUG = false;
 
-// Production: No console logs
 function log(...args) { if (DEBUG) console.log('[DEBUG]', ...args); }
 function logInfo(message, data) { if (DEBUG) console.log(`%c[INFO] ${message}`, 'color: #4CAF50', data || ''); }
 function logWarn(message, data) { if (DEBUG) console.log(`%c[WARN] ${message}`, 'color: #FF9800', data || ''); }
@@ -60,7 +58,7 @@ function flyToCart(productImageSrc, productId, buttonElement) {
 }
 
 // ============================================
-// PRODUCT CATALOG
+// PRODUCT CATALOG (ALL IMAGES WITH images/ PREFIX)
 // ============================================
 
 const products = [
@@ -94,12 +92,12 @@ const products = [
     { id: 29, name: 'Daniel Wellington', price: 1230, category: "watch", image: 'images/product29.jpg' },
     { id: 30, name: 'Nike Air Max Alpha', price: 2390, category: "Shoes", image: 'images/product26.jpg' },
     { id: 31, name: 'Puma serie', price: 2500, category: "shoes", image: 'images/product22.jpg' },
-    { id: 32, name: 'Givenchi paris', price: 1150, category: "Shoes", image: 'product42.jpg' },
-    { id: 33, name: 'Nike Air Force 1', price: 1200, category: "Shoes", image: 'product38.jpg' },
-    { id: 34, name: 'Cameroon Pull-Over', price: 900, category: "Tops", image: 'product41.jpg' },
-    { id: 35, name: 'Slim-fit black button-up shirt', price: 725, category: "shirt", image: 'nadiye-odabasi.jpg' },
-    { id: 36, name: 'Men traditional African fashion outdoors', price: 1600, category: "shirt", image: 'africa shirt.jpg' },
-    { id: 37, name: 'colourblock t-shirt', price: 940, category: "shirt", image: 'moh-adbelghaffar.jpg' },
+    { id: 32, name: 'Givenchi paris', price: 1150, category: "Shoes", image: 'images/product42.jpg' },
+    { id: 33, name: 'Nike Air Force 1', price: 1200, category: "Shoes", image: 'images/product38.jpg' },
+    { id: 34, name: 'Cameroon Pull-Over', price: 900, category: "Tops", image: 'images/product41.jpg' },
+    { id: 35, name: 'Slim-fit black button-up shirt', price: 725, category: "shirt", image: 'images/nadiye-odabasi.jpg' },
+    { id: 36, name: 'Men traditional African fashion outdoors', price: 1600, category: "shirt", image: 'images/africa shirt.jpg' },
+    { id: 37, name: 'colourblock t-shirt', price: 940, category: "shirt", image: 'images/moh-adbelghaffar.jpg' },
 ];
 
 let cart = [];
@@ -654,7 +652,7 @@ function setupKeyboardSupport() { document.addEventListener('keydown', e => { if
 function setupCrossTabSync() { window.addEventListener('storage', e => { if (e.key === STORAGE_KEY && e.newValue) { loadCartFromLocalStorage(); renderCart(); showSuccessMessage('Cart updated from another tab'); } }); }
 
 // ============================================
-// TESTIMONIALS (Day 19) - FIXED
+// TESTIMONIALS (Day 19)
 // ============================================
 
 const testimonials = [
@@ -758,8 +756,6 @@ window.handleImageLoad = handleImageLoad;
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Silent initialization for production (no console logs)
-    
     loadCurrentUser();
     loadCartFromLocalStorage();
     loadOrdersFromStorage();
@@ -776,7 +772,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupAccountSystem();
     setupPaymentModal();
     
-    // Day 18+19 functions
     displayTestimonials();
     setupNewsletter();
     setupHeroButtons();

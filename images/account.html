@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Product - LEZECKSTORE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="logo.jpg" width="250px" alt="logo"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="product.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons">
+                    <a href="cart.html"><button id="cartBtn" class="cart-btn" style="background:none; border:none; cursor:pointer;">
+  <img src="cart.png" width="30px" height="30px" alt="cart">
+  <span id="cartCount" style="background:#ff4444; color:white; border-radius:50%; padding:2px 6px; font-size:12px; position:relative; top:-10px; left:-5px;">0</span></button></a>
+                    <img src="menu4.png" class="menu-icon" onclick="menutoggle()" alt="Menu">
+                </div>
+            </div>
+        </div>
+        </header>
+          
+<main class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="product21.jpg" width="100%" alt="Account image">
+            </div>
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span id="showLoginTab">Login</span>
+                        <span id="showRegisterTab">Register</span>
+                        <hr id="Indicator">
+                    </div>
+                    <!-- Login form (IDs expected by script.js) -->
+                    <form id="loginForm" class="form" action="">
+                        <input id="loginEmail" type="email" placeholder="Email" required>
+                        <input id="loginPassword" type="password" placeholder="Password" required>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:0.9rem; margin-top:8px;"><input id="rememberMe" type="checkbox"> Remember me</label>
+                        <button type="submit" class="btn">Login</button>
+                        <a href="">Forgot password?</a>
+                    </form>
+                    <!-- Register form (IDs expected by script.js) -->
+                    <form id="registerForm" class="form" action="">
+                        <input id="regName" type="text" placeholder="Full name" required>
+                        <input id="regEmail" type="email" placeholder="Email" required>
+                        <input id="regPassword" type="password" placeholder="Password" required>
+                        <input id="regConfirmPassword" type="password" placeholder="Confirm password" required>
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+ 
+             <!-- footer -->
+              <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col-1">
+                            <h3>Download Our App</h3>
+                            <p>Download App for Android and ios mobile phone.</p>
+                            <div class="app-logo">
+                                <img src="play-store.png" alt="play-store">
+                                <img src="app-store.png" alt="app-store">
+                            </div>
+                        </div>
+                        <div class="footer-col-2">
+                            <img src="logo1.jpg" alt="logo">
+                            <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Fashion Accessible to the Many.</p>
+                        </div>
+                        <div class="footer-col-3">
+                            <h3>Useful Links</h3>
+                            <ul>
+                                <li>Coupons</li>
+                                <li>Blog Post</li>
+                                <li>Return Policy</li>
+                                <li>Join Affiliate</li>
+                            </ul>
+                        </div>
+                        <div class="footer-col-4">
+                            <h3>Follow Us</h3>
+                            <ul>
+                                <li>Facebook</li>
+                                <li>Twitter</li>
+                                <li>Instagram</li>
+                                <li>Youtube</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="copyright">Copyright 2026 - Lezeckstore</p>
+                </div>
+             </footer>
+             <!-- js bundle -->
+                <script src="script.js" defer></script>
+                <script>
+                    // Simple tab switch for account page
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const loginForm = document.getElementById('loginForm');
+                        const registerForm = document.getElementById('registerForm');
+                        const showLogin = document.getElementById('showLoginTab');
+                        const showRegister = document.getElementById('showRegisterTab');
+                        const indicator = document.getElementById('Indicator');
+
+                        function showLoginForm() {
+                            if (loginForm) loginForm.style.display = 'block';
+                            if (registerForm) registerForm.style.display = 'none';
+                            if (indicator) indicator.style.transform = 'translateX(0)';
+                        }
+                        function showRegisterForm() {
+                            if (loginForm) loginForm.style.display = 'none';
+                            if (registerForm) registerForm.style.display = 'block';
+                            if (indicator) indicator.style.transform = 'translateX(100px)';
+                        }
+
+                        showLogin?.addEventListener('click', showLoginForm);
+                        showRegister?.addEventListener('click', showRegisterForm);
+
+                        // default view
+                        showLoginForm();
+                    });
+                </script>
+</body>
+</html>

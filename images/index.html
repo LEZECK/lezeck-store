@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>LEZECK STORE - Fashion Meets Your Personality</title>
+    <!-- Add Font Awesome for testimonial icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Header with Navigation -->
+<header class="header">
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="logo.JPG" width="250px" alt="logo"></a>
+            <h1>LEZECKSTORE</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
+        <div class="header-actions">
+            <div class="account-dropdown" id="accountDropdown">
+                <button class="account-btn" id="accountBtn" aria-label="Account menu">👤 Account</button>
+                <div class="dropdown-content" id="dropdownContent">
+                    <div class="user-info" id="userInfo">
+                        <span id="userNameDisplay">Guest</span>
+                    </div>
+                    <hr>
+                    <button id="ordersBtn" class="dropdown-item">📋 My Orders</button>
+                    <button id="loginBtn" class="dropdown-item">🔑 Login</button>
+                    <button id="registerBtn" class="dropdown-item">📝 Register</button>
+                    <button id="logoutBtn" class="dropdown-item logout" style="display:none;">🚪 Logout</button>
+                </div>
+            </div>
+            <div class="cart-icon" id="cartIcon" aria-label="Shopping cart">
+                🛒 <span id="cartCount" class="cart-badge">0</span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Banner (Day 18) -->
+<section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="hero-badge">Summer Collection 2026</span>
+        <h1 class="hero-main-title">Style That<br><span class="gradient-text">Speaks Volumes</span></h1>
+        <p class="hero-subtitle">Discover the latest trends in fashion. Premium quality, affordable prices, and fast delivery.</p>
+        <div class="hero-buttons">
+            <button class="btn-primary" id="shopNowBtn">Shop Now →</button>
+            <button class="btn-secondary" id="learnMoreBtn">Learn More</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><span>5000+</span><p>Happy Customers</p></div>
+            <div class="stat"><span>100%</span><p>Satisfaction Rate</p></div>
+            <div class="stat"><span>24/7</span><p>Support</p></div>
+        </div>
+    </div>
+    <div class="col-2">
+        <img src="shop.jpg" alt="shop">
+    </div>
+</section>
+
+<!-- Features Section (Day 18) -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Why Choose Us</span>
+            <h2 class="section-title">We Provide <span class="highlight">Best Services</span></h2>
+            <p class="section-subtitle">Experience the difference with our premium services designed for your convenience</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3>Free Shipping</h3>
+                <p>Free worldwide shipping on all orders over ¥5000</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Payment</h3>
+                <p>100% secure payment with multiple options</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>24/7 Support</h3>
+                <p>Dedicated customer service team always ready</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3>Easy Returns</h3>
+                <p>30-day money-back guarantee on all items</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<main class="main-content">
+    <h2 class="section-title">Our Trendy Pieces</h2>
+    
+    <div class="control-bar">
+        <div class="sort-buttons">
+            <button class="btn-sort" id="sortLowToHigh">Sort: Price ↑</button>
+            <button class="btn-sort" id="sortHighToLow">Sort: Price ↓</button>
+        </div>
+        
+        <div class="price-filter">
+            <div class="price-range">
+                <label>Price: ¥</label>
+                <input type="number" id="minPrice" placeholder="Min" class="price-input" value="0">
+                <span>-</span>
+                <input type="number" id="maxPrice" placeholder="Max" class="price-input" value="5000">
+            </div>
+            <input type="range" id="priceSlider" class="price-slider" min="0" max="5000" value="5000">
+        </div>
+        
+        <div class="categories-filter">
+            <span class="filter-label">Categories:</span>
+            <label class="category-checkbox"><input type="checkbox" class="category-chk" value="Dresses"> Dresses</label>
+            <label class="category-checkbox"><input type="checkbox" class="category-chk" value="watch"> Watches</label>
+            <label class="category-checkbox"><input type="checkbox" class="category-chk" value="Shoes"> Shoes</label>
+            <label class="category-checkbox"><input type="checkbox" class="category-chk" value="Computers"> Computers</label>
+           <label class="category-checkbox"><input type="checkbox" class="category-chk" value="shirt"> Shirts</label>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Search products..." class="search-input">
+            <button id="clearFiltersBtn" class="btn-clear">✖ Clear All</button>
+        </div>
+    </div>
+    
+    <div class="active-filters" id="activeFilters"></div>
+    <div class="results-count" id="resultsCount">Showing 37 products</div>
+    
+    <div class="product-grid" id="productGrid"></div>
+</main>
+
+<!-- Testimonials Section (Day 19) - KEPT YOUR ORIGINAL STRUCTURE -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Our <span class="highlight">Customers Say</span></h2>
+            <p class="section-subtitle">Join thousands of satisfied customers who trust LEZECK STORE</p>
+        </div>
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lezeckstore is my go-to online store for all my fashion needs. The quality of their products is exceptional, and the customer service is top-notch. I highly recommend Lezeckstore to anyone looking for trendy and stylish clothing.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> 
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <img src="user1.jpg" alt="user1">
+                        <h3>Sarah Johnson</h3>
+                    </div>
+                    <div class="col-3"> 
+                        <i class="fa fa-quote-left"></i>
+                        <p>I recently purchased a gaming kit from Lezeckstore, and I couldn't be happier with my purchase. The quality of the products exceeded my expectations, and the customer service was excellent. I highly recommend Lezeckstore for all your gaming needs.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>  
+                        <img src="user2.jpg" alt="user2">
+                        <h3>Michael Davis</h3>      
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>Lezeckstore has an amazing selection of products, and their prices are very competitive. I have been a loyal customer for years, and I have always been satisfied with my purchases. I highly recommend Lezeckstore to anyone looking for high-quality products at affordable prices.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> 
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <img src="user3.jpg" alt="user3">
+                        <h3>Emily Wilson</h3>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section  -->
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-content">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Get the latest updates on new products and exclusive offers</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe →</button>
+            </form>
+            <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer  -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>LEZECKSTORE</h2>
+                <p>Trendy pieces, soft fabrics, and service that's all about looking after you.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📸</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-icon" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>📍 123 Fashion Street, Nanjing, China</p>
+                <p>📧 support@lezeckstore.com</p>
+                <p>📞 +86 188 051 63613</p>
+                <p>⏰ Mon-Fri: 9am - 6pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LEZECKSTORE. All rights reserved.</p>
+            <p>Secure payment powered by <span class="payment-icons">🏦 💳 💚</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>My Cart 🛒</h3>
+        <button class="close-cart" id="closeCartBtn" aria-label="Close cart">✖</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart-illustration">
+            <div class="empty-cart-icon">🛍️</div>
+            <p>Your cart is empty</p>
+            <p class="empty-cart-subtitle">Add some trendy pieces to get started!</p>
+        </div>
+    </div>
+    <div class="cart-total" id="cartTotal">Total: 0 RMB</div>
+    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+</div>
+
+<!-- REMOVED DUPLICATE ELEMENTS (cart-icon, account-btn, close-cart that were at the bottom) -->
+
+<!-- Checkout Modal -->
+<div class="modal" id="checkoutModal">
+    <div class="modal-content modal-large">
+        <div class="modal-header">
+            <h3>Complete Your Order</h3>
+            <button class="close-modal" id="closeCheckoutModalBtn" aria-label="Close">✖</button>
+        </div>
+        <div id="orderSummary" class="order-summary"></div>
+        
+        <div class="checkout-form">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="customerName" class="form-input" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="customerEmail" class="form-input" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Delivery Address *</label>
+                <textarea id="customerAddress" class="form-input" rows="2" placeholder="Enter your full address"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Payment Method *</label>
+                <select id="paymentMethod" class="form-input">
+                    <option value="">Select payment method</option>
+                    <option value="bank">🏦 Bank Transfer</option>
+                    <option value="alipay">💰 Alipay</option>
+                    <option value="wechat">💚 WeChat Pay</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="modal-buttons">
+            <button class="cancel-btn" id="cancelModalBtn">Cancel</button>
+            <button class="confirm-btn" id="confirmOrderBtn">Place Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal" id="paymentModal">
+    <div class="modal-content modal-large">
+        <div class="modal-header">
+            <h3>💳 Complete Payment</h3>
+            <button class="close-modal" id="closePaymentBtn" aria-label="Close">✖</button>
+        </div>
+        
+        <div id="paymentSummary" class="payment-summary">
+            <div class="payment-amount">
+                <span>Total to pay:</span>
+                <strong id="paymentTotal">¥0</strong>
+            </div>
+        </div>
+        
+        <div class="payment-methods" id="paymentMethods">
+            <div class="payment-method selected" data-method="bank">
+                <div class="method-icon">🏦</div>
+                <div class="method-info">
+                    <strong>Bank Transfer</strong>
+                    <small>Transfer to our bank account</small>
+                </div>
+                <div class="method-check">✓</div>
+            </div>
+            <div class="payment-method" data-method="alipay">
+                <div class="method-icon">💰</div>
+                <div class="method-info">
+                    <strong>Alipay</strong>
+                    <small>Scan QR code with Alipay app</small>
+                </div>
+                <div class="method-check">✓</div>
+            </div>
+            <div class="payment-method" data-method="wechat">
+                <div class="method-icon">💚</div>
+                <div class="method-info">
+                    <strong>WeChat Pay</strong>
+                    <small>Scan QR code with WeChat</small>
+                </div>
+                <div class="method-check">✓</div>
+            </div>
+        </div>
+        
+        <div id="paymentDetails" class="payment-details"></div>
+        
+        <div class="payment-buttons">
+            <button class="cancel-btn" id="cancelPaymentBtn">Cancel</button>
+            <button class="confirm-btn" id="processPaymentBtn">Confirm Payment</button>
+        </div>
+        
+        <div id="paymentStatus" class="payment-status"></div>
+    </div>
+</div>
+
+<!-- Order History Modal -->
+<div class="modal" id="ordersModal">
+    <div class="modal-content modal-large">
+        <div class="modal-header">
+            <h3>📋 My Orders</h3>
+            <button class="close-modal" id="closeOrdersBtn" aria-label="Close">✖</button>
+        </div>
+        <div id="ordersList" class="orders-list">
+            <p style="text-align:center;color:#999;">No orders yet. Complete your first order!</p>
+        </div>
+    </div>
+</div>
+
+<!-- Registration Modal -->
+<div class="modal" id="registerModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>📝 Create Account</h3>
+            <button class="close-modal" id="closeRegisterBtn" aria-label="Close">✖</button>
+        </div>
+        <form id="registerForm">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="regName" class="form-input" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="regEmail" class="form-input" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Password *</label>
+                <input type="password" id="regPassword" class="form-input" placeholder="Minimum 6 characters">
+            </div>
+            <div class="form-group">
+                <label>Confirm Password *</label>
+                <input type="password" id="regConfirmPassword" class="form-input" placeholder="Confirm your password">
+            </div>
+            <button type="submit" class="confirm-btn" style="width:100%;">Register</button>
+        </form>
+        <p class="form-footer">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🔑 Login</h3>
+            <button class="close-modal" id="closeLoginBtn" aria-label="Close">✖</button>
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Password *</label>
+                <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="confirm-btn" style="width:100%;">Login</button>
+        </form>
+        <p class="form-footer">Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+    </div>
+</div>
+
+<!-- Success Toast Message -->
+<div id="successToast" class="toast">✅ Order placed successfully!</div>
+
+</body>
+</html>

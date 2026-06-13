@@ -67,8 +67,8 @@ const products = [
     { id: 3, name: 'adidas-red', price: 1050, category: "Shoes", image: 'images/adidas-red.jpg' },
     { id: 4, name: 'adidas AS-230', price: 850, category: "Shoes", image: 'images/product1.jpg' },
     { id: 5, name: 'adidas GAZELLE', price: 650, category: "Shoes", image: 'images/product2.jpg' },
-    { id: 6, name: 'Babys Dress', price: 720, category: "Dresses", image: 'images/product6.jpg' },
-    { id: 7, name: 'ASICS Gel-Lyte V', price: 510, category: "Shoes", image: 'images/Product100.jpg' },
+    { id: 6, name: 'Babys Dress', price: 720, category: "baby", image: 'images/product6.jpg' },
+    { id: 7, name: 'ASICS Gel-Lyte V', price: 510, category: "Shoes", image: 'images/Product10.jpg' },
     { id: 8, name: 'Brown Loafers', price: 730, category: "Shoes", image: 'images/product17.jpg' },
     { id: 38, name: 'Baby clothes', price: 430, category: "baby", image: 'images/babydress.jpg' },
     { id: 39, name: 'Baby jersey', price: 530, category: "baby", image: 'images/babydress4.jpg' },
@@ -99,7 +99,7 @@ const products = [
     { id: 34, name: 'Cameroon Pull-Over', price: 900, category: "Tops", image: 'images/product41.jpg' },
     { id: 35, name: 'Slim-fit black button-up shirt', price: 725, category: "shirt", image: 'images/nadiye-odabasi.jpg' },
     { id: 36, name: 'Men traditional African fashion outdoors', price: 1600, category: "shirt", image: 'images/africa shirt.jpg' },
-    { id: 37, name: 'colourblock t-shirt', price: 940, category: "shirt", image: 'images/moh-adbelghaffar.jpg' },
+    { id: 37, name: 'colourblock t-shirt', price: 940, category: "shirt", image: 'images/moh-adbelghaffar.jpg' }
 ];
 
 let cart = [];
@@ -536,7 +536,7 @@ function displayProducts() {
         const inStock = Math.random() > 0.2;
         const card = document.createElement('div');
         card.className = 'product-card';
-        card.innerHTML = `<div class="skeleton-img"></div><img src="${p.image}" class="product-img" style="display:none;" loading="lazy" onerror="handleImageError(event)" onload="handleImageLoad(event)"><div class="product-info"><div class="product-name">${escapeHtml(p.name)}</div><div class="product-rating">${stars} ${rating}</div><div class="product-price">¥${p.price.toLocaleString()}</div><div class="stock-badge ${inStock ? 'stock-in' : 'stock-low'}">${inStock ? 'In Stock' : 'Low Stock'}</div><button class="add-btn" data-id="${p.id}">Add to Cart</button></div>`;
+        card.innerHTML = `<div class="skeleton-img"></div><img src="${p.image}"  class="product-img" style="display:none;" loading="lazy" onerror="handleImageError(event)" onload="handleImageLoad(event)"><div class="product-info"><div class="product-name">${escapeHtml(p.name)}</div><div class="product-rating">${stars} ${rating}</div><div class="product-price">¥${p.price.toLocaleString()}</div><div class="stock-badge ${inStock ? 'stock-in' : 'stock-low'}">${inStock ? 'In Stock' : 'Low Stock'}</div><button class="add-btn" data-id="${p.id}">Add to Cart</button></div>`;
         grid.appendChild(card);
     });
     document.querySelectorAll('.add-btn').forEach(btn => {

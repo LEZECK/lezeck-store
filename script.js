@@ -73,7 +73,7 @@ const products = [
     { id: 38, name: 'Baby clothes', price: 430, category: "baby", image: 'images/babydress.jpg' },
     { id: 39, name: 'Baby jersey', price: 530, category: "baby", image: 'images/babydress4.jpg' },
     { id: 9, name: 'Apple Air 13 + kit', price: 2390, category: "Computers", image: 'images/product3.jpg' },
-    { id: 11, name: 'MacBook Design', price: 2500, category: "Computers", image: 'images/Apple-Black.jpg' },
+    { id: 11, name: 'MacBook Design', price: 3500, category: "Computers", image: 'images/Laptop-design.jpg' },
     { id: 12, name: 'Nike design Shoes', price: 1150, category: "Shoes", image: 'images/product39.jpg' },
     { id: 13, name: 'Nike Speckled Roshes', price: 1200, category: "Shoes", image: 'images/product33.jpg' },
     { id: 14, name: 'Raymond Cotton Mens', price: 900, category: "shirt", image: 'images/product23.jpg' },
